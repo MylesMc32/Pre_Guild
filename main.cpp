@@ -76,14 +76,16 @@ void AddFoe(const shared_ptr<Guild> guild)
     cin >> choice;
     switch (choice)
     {
-        case 1: guild->AddFoe (make_shared<Mage>(name) ;break;
-        case 2: guild->AddFoe(make_shared<Ranger>(name); break;
-        case 3: guild->AddFoe(make_shared<Paladin(name); break;
-        case 4: guild->AddFoe(make_shared<Warrior(name); break;
+        case 1: guild->AddFoe (make_shared<Mage>(name)) ;break;
+        case 2: guild->AddFoe(make_shared<Ranger>(name)); break;
+        case 3: guild->AddFoe(make_shared<Paladin>(name)); break;
+        case 4: guild->AddFoe(make_shared<Warrior>(name)); break;
         default: cout << "Invalid choice!"; break;
     }
-                              }
-    system("pause");
+
+system("pause");
+
+
 }
 
 void Attack(const shared_ptr<Guild> guild)
@@ -101,11 +103,12 @@ void Attack(const shared_ptr<Guild> guild)
     
     switch (choice)
     {
-        case 1: cout << guild->AttackWithMages() << endl; break;
+        /*case 1: cout << guild->AttackWithMages() << endl; break;
         case 2: cout << guild->AttackWithRangers() << endl; break;
         case 3: cout << guild->AttackWithWarriors() << endl; break;
         case 4: cout << guild->AttackWithPaladins() << endl; break;
-        case 5: cout << guild->AttackWithAllAdventurers() << endl; break;
+         */
+        case 5: cout << guild->AttackWithAllFoe() << endl; break;
         default: cout << "You run away like a coward" << endl; break;
     }
     system("pause");

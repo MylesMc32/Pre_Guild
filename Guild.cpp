@@ -25,15 +25,15 @@ Guild::~Guild()
 void Guild::AddFoe(std::shared_ptr<Foe> newFoe)
 {
     
-    if (template<> AddFoe std::shared_ptr<Foe> newFoe == 1)
+   /* if (template<> AddFoe std::shared_ptr<Foe> newFoe == 1)
     {
        template<> AddMage (name) std::vector<std::shared_ptr<Mage>> _mages;
    
-    }
+    }*/
     
 
     
-   // auto foePtr = std::make_shared<Foe>(_name);
+   auto foePtr = std::make_shared<Foe>(_name);
     _foe.push_back(newFoe);
     
     
@@ -70,7 +70,7 @@ std::string Guild::GetInfo()
     std::string output = "Your guild has: \n";
     
     
-    
+   // output += _foe.size() > 0 ? std::to_string (_foe.size()) +
     
     output += _mages.size()		> 0 ? std::to_string(_mages.size()) + " mages\n" : "No mages!\n";
     output += _rangers.size()	> 0 ? std::to_string(_rangers.size()) + " rangers\n" : "No rangers!\n";
@@ -79,7 +79,7 @@ std::string Guild::GetInfo()
     return output;
 }
 
-std::string Guild::AttackWithMages()
+/* std::string Guild::AttackWithMages()
 {
     std::string output = "You command your mages to attack! \n";
     if (_mages.size() > 0) {
@@ -121,14 +121,18 @@ std::string Guild::AttackWithWarriors()
         }
     }
     return output;
-}
+}*/
 
-std::string Guild::AttackWithAllAdventurers()
+std::string Guild::AttackWithAllFoe()
 {
     std::string output = "You command everyone to attack! \n";
-    output += AttackWithMages();
+    
+    for (auto foe : _foe)
+    {output += foe->Attack();
+    }
+   /* output += AttackWithMages();
     output += AttackWithPaladins();
     output += AttackWithRangers();
-    output += AttackWithWarriors();
+    output += AttackWithWarriors();*/
     return output;
 }
